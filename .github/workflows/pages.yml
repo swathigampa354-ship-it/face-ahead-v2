@@ -24,7 +24,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      - run: npx vite build --base=/${{ github.event.repository.name }}/
+      - run: VITE_YOUCAM_KEY=${{ secrets.VITE_YOUCAM_KEY }} npx vite build --base=/${{ github.event.repository.name }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
