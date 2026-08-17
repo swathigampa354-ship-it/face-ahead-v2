@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { hasKey } from '../lib/youcam';
 
 interface HeroProps {
-  onStart: () => void;
+  onStart: (f?: File) => void;
   onDemo: () => void;
   onFile: (f: File) => void;
 }
@@ -14,7 +14,7 @@ export function Hero({ onStart, onDemo, onFile }: HeroProps) {
     const f = e.target.files?.[0];
     if (f) {
       onFile(f);
-      onStart();
+      onStart(f);
     }
   };
 

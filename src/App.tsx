@@ -266,7 +266,7 @@ function App() {
         {error && <div className="error">⚠ {error}</div>}
 
         {phase === 'landing' && (
-          <Hero onStart={() => runJourney(imgBlob!)} onDemo={startDemo} onFile={onFile} />
+          <Hero onStart={(f) => { if (f) void runJourney(f); else if (imgBlob) void runJourney(imgBlob); }} onDemo={startDemo} onFile={onFile} />
         )}
 
         {phase === 'scanning' && (
